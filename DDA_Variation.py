@@ -40,4 +40,6 @@ dda_line(3, 2, 3, 10, 'blue', 'Line 3 (Vertical)')
 dda_line(1, 1, 8, 4, 'orange', 'Line 4 (Shallow Slope)')
 dda_line(2, 8, 6, 3, 'purple', 'Line 5 (Negative Slope)')
 
-
+plt.legend()
+plt.axis('equal')
+plt.show()
