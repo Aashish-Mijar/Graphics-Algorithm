@@ -33,3 +33,6 @@ plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
 plt.grid(True)
 
+# Different coordinates and colors
+dda_line(0, 0, 5, 5, 'red', 'Line 1 (Diagonal)')
+
