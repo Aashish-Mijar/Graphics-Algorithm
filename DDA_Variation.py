@@ -29,6 +29,7 @@ def dda_line(x1, y1, x2, y2, color='blue', label='DDA Line'):
 # Example variations
 plt.figure(figsize=(8, 8))
 plt.title("DDA Line Drawing Algorithm Variations")
-
-
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.grid(True)
 
