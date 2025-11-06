@@ -35,4 +35,5 @@ plt.grid(True)
 
 # Different coordinates and colors
 dda_line(0, 0, 5, 5, 'red', 'Line 1 (Diagonal)')
+dda_line(2, 3, 10, 3, 'green', 'Line 2 (Horizontal)')
 
