@@ -37,3 +37,7 @@ plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
 plt.grid(True)
 
+
+# Different coordinates for variations
+bresenham_line(0, 0, 5, 5, 'red', 'Line 1 (Diagonal)')
+
