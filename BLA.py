@@ -42,4 +42,4 @@ plt.grid(True)
 bresenham_line(0, 0, 5, 5, 'red', 'Line 1 (Diagonal)')
 bresenham_line(2, 3, 10, 3, 'green', 'Line 2 (Horizontal)')
 bresenham_line(3, 2, 3, 10, 'blue', 'Line 3 (Vertical)')
-
+bresenham_line(1, 1, 8, 4, 'orange', 'Line 4 (Shallow Slope)')
