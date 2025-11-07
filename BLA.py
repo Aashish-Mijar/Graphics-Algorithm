@@ -27,4 +27,8 @@ def bresenham_line(x1, y1, x2, y2, color='blue', label='BLA Line'):
             err += dx
             y1 += sy
 
-    
+    plt.plot(x_points, y_points, color=color, marker='o', label=label)
+    plt.text(x2, y2, f"({x2},{y2})", fontsize=8, color=color)
+
+
+
