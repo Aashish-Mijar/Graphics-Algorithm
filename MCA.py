@@ -31,3 +31,5 @@ plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
 plt.grid(True)
 
+# Circle variations
+midpoint_circle(0, 0, 10, 'red', 'Circle 1 (center: 0,0 | r=10)')
