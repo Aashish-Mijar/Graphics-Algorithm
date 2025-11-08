@@ -38,3 +38,6 @@ midpoint_circle(-10, -5, 8, 'blue', 'Circle 3 (center: -10,-5 | r=8)')
 midpoint_circle(5, -10, 12, 'purple', 'Circle 4 (center: 5,-10 | r=12)')
 midpoint_circle(-15, 10, 6, 'orange', 'Circle 5 (center: -15,10 | r=6)')
 
+plt.legend()
+plt.axis('equal')
+plt.show()
