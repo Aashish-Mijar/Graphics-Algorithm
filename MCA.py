@@ -24,3 +24,7 @@ def midpoint_circle(xc, yc, r, color='blue', label=None):
         plot_circle_points(xc, yc, x, y, color)
 
 
+# --- VARIATIONS DEMO ---
+plt.figure(figsize=(8, 8))
+plt.title("Midpoint Circle Drawing Algorithm Variations")
+plt.xlabel("X-axis")
