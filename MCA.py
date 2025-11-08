@@ -34,3 +34,4 @@ plt.grid(True)
 # Circle variations
 midpoint_circle(0, 0, 10, 'red', 'Circle 1 (center: 0,0 | r=10)')
 midpoint_circle(15, 10, 5, 'green', 'Circle 2 (center: 15,10 | r=5)')
+midpoint_circle(-10, -5, 8, 'blue', 'Circle 3 (center: -10,-5 | r=8)')
