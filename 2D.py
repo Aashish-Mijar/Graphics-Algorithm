@@ -23,3 +23,8 @@ x_circle = 2 + np.cos(theta)
 y_circle = 5 + np.sin(theta)
 plt.plot(x_circle, y_circle, color='green', label='Circle')
 
+# Text labels
+plt.text(5, 5, "Line", color='red')
+plt.text(2.5, 2, "Rectangle", color='blue')
+plt.text(2, 6, "Circle", color='green')
+
