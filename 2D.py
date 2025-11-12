@@ -11,4 +11,8 @@ plt.grid(True)
 # Line
 plt.plot([0, 5], [0, 5], color='red', label='Line')
 
+# Rectangle
+rect_x = [1, 4, 4, 1, 1]
+rect_y = [1, 1, 3, 3, 1]
+plt.plot(rect_x, rect_y, color='blue', label='Rectangle')
 
