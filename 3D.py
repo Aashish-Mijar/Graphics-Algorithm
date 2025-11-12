@@ -33,3 +33,5 @@ Y = np.outer(np.sin(phi), np.sin(theta))
 Z = np.outer(np.cos(phi), np.ones_like(theta))
 ax.plot_wireframe(X, Y, Z, color='blue', label='Sphere')
 
+plt.legend()
+plt.show()
