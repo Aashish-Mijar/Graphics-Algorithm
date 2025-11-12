@@ -12,4 +12,10 @@ ax.set_xlabel("X-axis")
 ax.set_ylabel("Y-axis")
 ax.set_zlabel("Z-axis")
 
+# Plot 3D line
+x = np.linspace(0, 5, 100)
+y = np.linspace(0, 5, 100)
+z = np.linspace(0, 5, 100)
+ax.plot(x, y, z, color='red', label='3D Line')
+
 
