@@ -11,3 +11,10 @@ ymax = float(input("Enter ymax: "))
 x = float(input("Enter x-coordinate of the point: "))
 y = float(input("Enter y-coordinate of the point: "))
 
+# Function to check if the point is inside the clipping window
+def is_point_visible(x, y, xmin, ymin, xmax, ymax):
+    if xmin <= x <= xmax and ymin <= y <= ymax:
+        return True
+    else:
+        return False
+
