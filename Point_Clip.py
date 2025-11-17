@@ -18,3 +18,8 @@ def is_point_visible(x, y, xmin, ymin, xmax, ymax):
     else:
         return False
 
+# Perform point clipping
+if is_point_visible(x, y, xmin, ymin, xmax, ymax):
+    print(f"Point ({x}, {y}) is inside the clipping window. Visible.")
+else:
+    print(f"Point ({x}, {y}) is outside the clipping window. Clipped.")
