@@ -224,4 +224,20 @@ def visualize_clipping():
         slider_x2.set_val(9)
         slider_y2.set_val(9)
     
-   
+    # Add example buttons
+    inside_ax = plt.axes([0.1, 0.2, 0.2, 0.04])
+    outside_ax = plt.axes([0.1, 0.15, 0.2, 0.04])
+    partial_ax = plt.axes([0.1, 0.1, 0.2, 0.04])
+    
+    button_inside = Button(inside_ax, 'Inside', color=axcolor)
+    button_outside = Button(outside_ax, 'Outside', color=axcolor)
+    button_partial = Button(partial_ax, 'Partial', color=axcolor)
+    
+    button_inside.on_clicked(set_example_inside)
+    button_outside.on_clicked(set_example_outside)
+    button_partial.on_clicked(set_example_partial)
+    
+    plt.show()
+
+if __name__ == "__main__":
+    visualize_clipping()
