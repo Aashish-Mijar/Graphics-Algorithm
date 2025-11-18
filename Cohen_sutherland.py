@@ -75,3 +75,35 @@ def cohen_sutherland_clip(x1, y1, x2, y2, x_min, y_min, x_max, y_max):
     
     return accept, (x1, y1, x2, y2), clipped_points
 
+def visualize_clipping():
+    """Create interactive visualization of Cohen-Sutherland algorithm"""
+    fig, ax = plt.subplots(figsize=(12, 10))
+    plt.subplots_adjust(bottom=0.3)
+    
+    # Clipping window
+    x_min, x_max = 2, 8
+    y_min, y_max = 2, 8
+    
+    # Initial line coordinates
+    x1, y1 = 1, 1
+    x2, y2 = 9, 9
+    
+    # Create clipping window rectangle
+    clip_rect = patches.Rectangle((x_min, y_min), x_max - x_min, y_max - y_min, 
+                                 linewidth=2, edgecolor='blue', facecolor='lightblue', alpha=0.3)
+    ax.add_patch(clip_rect)
+    
+    # Plot region codes
+    ax.text(0.5, 0.5, '1001', fontsize=10, ha='center', va='center', color='red')
+    ax.text(5, 0.5, '1000', fontsize=10, ha='center', va='center', color='red')
+    ax.text(9.5, 0.5, '1010', fontsize=10, ha='center', va='center', color='red')
+    
+    ax.text(0.5, 5, '0001', fontsize=10, ha='center', va='center', color='red')
+    ax.text(5, 5, '0000', fontsize=10, ha='center', va='center', color='red')
+    ax.text(9.5, 5, '0010', fontsize=10, ha='center', va='center', color='red')
+    
+    ax.text(0.5, 9.5, '0101', fontsize=10, ha='center', va='center', color='red')
+    ax.text(5, 9.5, '0100', fontsize=10, ha='center', va='center', color='red')
+    ax.text(9.5, 9.5, '0110', fontsize=10, ha='center', va='center', color='red')
+    
+   
