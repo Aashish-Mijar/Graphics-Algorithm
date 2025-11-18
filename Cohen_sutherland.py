@@ -126,4 +126,33 @@ def visualize_clipping():
     info_text = ax.text(0.02, 0.98, '', transform=ax.transAxes, verticalalignment='top',
                        bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
     
-   
+    # Update function for the visualization
+    def update_visualization():
+        accept, clipped_coords, all_steps = cohen_sutherland_clip(x1, y1, x2, y2, x_min, y_min, x_max, y_max)
+        
+        # Update original line
+        original_line.set_data([x1, x2], [y1, y2])
+        
+        # Update clipped line
+        if accept:
+            cx1, cy1, cx2, cy2 = clipped_coords
+            clipped_line.set_data([cx1, cx2], [cy1, cy2])
+            clipped_line.set_visible(True)
+            info_text.set_text(f'Line Accepted!\nClipped: ({cx1:.2f}, {cy1:.2f}) to ({cx2:.2f}, {cy2:.2f})')
+        else:
+            clipped_line.set_visible(False)
+            info_text.set_text('Line Rejected!')
+        
+        # Draw intermediate steps
+        for i, step in enumerate(all_steps):
+            sx1, sy1, sx2, sy2 = step
+            if i == 0:
+                # Original line
+                ax.plot([sx1, sx2], [sy1, sy2], 'ro-', alpha=0.3, linewidth=1)
+            else:
+                # Intermediate steps
+                ax.plot([sx1, sx2], [sy1, sy2], 'mo-', alpha=0.5, linewidth=1, markersize=4)
+        
+        plt.draw()
+    
+    
