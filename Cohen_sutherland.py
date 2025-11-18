@@ -106,4 +106,24 @@ def visualize_clipping():
     ax.text(5, 9.5, '0100', fontsize=10, ha='center', va='center', color='red')
     ax.text(9.5, 9.5, '0110', fontsize=10, ha='center', va='center', color='red')
     
+    # Draw the original line
+    original_line, = ax.plot([x1, x2], [y1, y2], 'ro-', linewidth=2, markersize=8, label='Original Line')
+    
+    # Draw the clipped line (initially hidden)
+    clipped_line, = ax.plot([], [], 'go-', linewidth=3, markersize=10, label='Clipped Line')
+    
+    # Set plot properties
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 10)
+    ax.set_aspect('equal')
+    ax.grid(True, linestyle='--', alpha=0.7)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_title('Cohen-Sutherland Line Clipping Algorithm')
+    ax.legend()
+    
+    # Add text information
+    info_text = ax.text(0.02, 0.98, '', transform=ax.transAxes, verticalalignment='top',
+                       bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+    
    
