@@ -155,4 +155,73 @@ def visualize_clipping():
         
         plt.draw()
     
+    # Initial visualization
+    update_visualization()
     
+    # Create sliders for line endpoints
+    axcolor = 'lightgoldenrodyellow'
+    ax_x1 = plt.axes([0.2, 0.2, 0.65, 0.03], facecolor=axcolor)
+    ax_y1 = plt.axes([0.2, 0.15, 0.65, 0.03], facecolor=axcolor)
+    ax_x2 = plt.axes([0.2, 0.1, 0.65, 0.03], facecolor=axcolor)
+    ax_y2 = plt.axes([0.2, 0.05, 0.65, 0.03], facecolor=axcolor)
+    
+    slider_x1 = Slider(ax_x1, 'X1', 0.0, 10.0, valinit=x1)
+    slider_y1 = Slider(ax_y1, 'Y1', 0.0, 10.0, valinit=y1)
+    slider_x2 = Slider(ax_x2, 'X2', 0.0, 10.0, valinit=x2)
+    slider_y2 = Slider(ax_y2, 'Y2', 0.0, 10.0, valinit=y2)
+    
+    def update(val):
+        global x1, y1, x2, y2
+        x1 = slider_x1.val
+        y1 = slider_y1.val
+        x2 = slider_x2.val
+        y2 = slider_y2.val
+        
+        # Clear previous intermediate steps
+        for line in ax.lines[2:]:  # Keep original and clipped lines
+            line.remove()
+        
+        update_visualization()
+    
+    slider_x1.on_changed(update)
+    slider_y1.on_changed(update)
+    slider_x2.on_changed(update)
+    slider_y2.on_changed(update)
+    
+    # Add reset button
+    resetax = plt.axes([0.8, 0.25, 0.1, 0.04])
+    button = Button(resetax, 'Reset', color=axcolor, hovercolor='0.975')
+    
+    def reset(event):
+        slider_x1.reset()
+        slider_y1.reset()
+        slider_x2.reset()
+        slider_y2.reset()
+    
+    button.on_clicked(reset)
+    
+    # Add example buttons
+    examples_ax = plt.axes([0.1, 0.25, 0.15, 0.15])
+    example_text = examples_ax.text(0.5, 0.5, 'Examples:\n1. Completely Inside\n2. Completely Outside\n3. Partially Inside', 
+                                   transform=examples_ax.transAxes, ha='center', va='center', fontsize=9)
+    examples_ax.axis('off')
+    
+    def set_example_inside(event):
+        slider_x1.set_val(3)
+        slider_y1.set_val(4)
+        slider_x2.set_val(7)
+        slider_y2.set_val(6)
+    
+    def set_example_outside(event):
+        slider_x1.set_val(0)
+        slider_y1.set_val(1)
+        slider_x2.set_val(1)
+        slider_y2.set_val(0)
+    
+    def set_example_partial(event):
+        slider_x1.set_val(1)
+        slider_y1.set_val(1)
+        slider_x2.set_val(9)
+        slider_y2.set_val(9)
+    
+   
