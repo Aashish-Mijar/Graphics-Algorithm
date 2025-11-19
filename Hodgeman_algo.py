@@ -93,4 +93,19 @@ class PolygonClipGUI:
         self.canvas.bind("<B1-Motion>", self.on_drag)
         self.canvas.bind("<ButtonRelease-1>", self.on_release)
 
-   
+    def enable_polygon(self):
+        self.mode = "POLYGON"
+
+    def enable_window(self):
+        self.mode = "WINDOW"
+
+    def on_click(self, event):
+        if self.mode == "POLYGON":
+            self.points.append([event.x, event.y])
+            if len(self.points) > 1:
+                self.canvas.create_line(self.points[-2][0], self.points[-2][1],
+                                        self.points[-1][0], self.points[-1][1],
+                                        fill="blue", width=2)
+
+        elif self.mode == "WINDOW":
+            self.start_rect = (event.x, event.y)
