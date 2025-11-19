@@ -109,3 +109,19 @@ class PolygonClipGUI:
 
         elif self.mode == "WINDOW":
             self.start_rect = (event.x, event.y)
+
+
+    def on_drag(self, event):
+        if self.mode == "WINDOW" and self.start_rect:
+            self.canvas.delete("window")
+            x1, y1 = self.start_rect
+            x2, y2 = event.x, event.y
+            self.canvas.create_rectangle(x1, y1, x2, y2, outline="red", width=2, tags="window")
+
+    def on_release(self, event):
+        if self.mode == "WINDOW" and self.start_rect:
+            x1, y1 = self.start_rect
+            x2, y2 = event.x, event.y
+            self.clipping_window = (min(x1, x2), min(y1, y2),
+                                    max(x1, x2), max(y1, y2))
+
