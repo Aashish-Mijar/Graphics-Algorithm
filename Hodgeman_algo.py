@@ -149,3 +149,13 @@ class PolygonClipGUI:
             x2, y2 = self.clipped_polygon[(i + 1) % len(self.clipped_polygon)]
             self.canvas.create_line(x1, y1, x2, y2,
                                     fill="green", width=2, tags="clipped")
+
+    def clear_all(self):
+        self.canvas.delete("all")
+        self.points = []
+        self.clipping_window = None
+        self.clipped_polygon = []
+        self.start_rect = None
+
+
+ 
