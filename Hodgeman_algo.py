@@ -158,4 +158,7 @@ class PolygonClipGUI:
         self.start_rect = None
 
 
- 
+ # Run GUI
+root = tk.Tk()
+PolygonClipGUI(root)
+root.mainloop() 
