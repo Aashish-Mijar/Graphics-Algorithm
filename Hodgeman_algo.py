@@ -59,3 +59,38 @@ def clip_polygon(poly, edge, xmin, ymin, xmax, ymax):
     return clipped
 
 
+
+# -----------------------------------
+# GUI IMPLEMENTATION
+# -----------------------------------
+
+class PolygonClipGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Sutherland–Hodgman Polygon Clipping - GUI Model")
+
+        self.canvas = tk.Canvas(root, width=800, height=600, bg="white")
+        self.canvas.pack()
+
+        self.points = []
+        self.clipped_polygon = []
+        self.clipping_window = None
+        self.start_rect = None
+
+        # Buttons
+        frame = tk.Frame(root)
+        frame.pack(pady=10)
+
+        tk.Button(frame, text="Draw Polygon (click)", command=self.enable_polygon).pack(side=tk.LEFT, padx=10)
+        tk.Button(frame, text="Draw Clipping Window (drag)", command=self.enable_window).pack(side=tk.LEFT, padx=10)
+        tk.Button(frame, text="Clip Polygon", command=self.perform_clipping).pack(side=tk.LEFT, padx=10)
+        tk.Button(frame, text="Clear All", command=self.clear_all).pack(side=tk.LEFT, padx=10)
+
+        self.mode = None
+
+        # Bind events
+        self.canvas.bind("<Button-1>", self.on_click)
+        self.canvas.bind("<B1-Motion>", self.on_drag)
+        self.canvas.bind("<ButtonRelease-1>", self.on_release)
+
+   
