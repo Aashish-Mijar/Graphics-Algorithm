@@ -125,3 +125,18 @@ class PolygonClipGUI:
             self.clipping_window = (min(x1, x2), min(y1, y2),
                                     max(x1, x2), max(y1, y2))
 
+    def perform_clipping(self):
+        if not self.points or not self.clipping_window:
+            print("Draw both polygon and clipping window first.")
+            return
+
+        xmin, ymin, xmax, ymax = self.clipping_window
+
+        clipped = self.points
+        for edge in ["LEFT", "RIGHT", "BOTTOM", "TOP"]:
+            clipped = clip_polygon(clipped, edge, xmin, ymin, xmax, ymax)
+
+        self.clipped_polygon = clipped
+        self.draw_clipped_polygon()
+
+   
