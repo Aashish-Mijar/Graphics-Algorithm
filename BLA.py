@@ -48,4 +48,4 @@ bresenham_line(2, 8, 6, 3, 'purple', 'Line 5 (Negative Slope)')
 plt.legend()
 plt.axis('equal')
 plt.show()
-plt.show()
+
