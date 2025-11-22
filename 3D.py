@@ -35,3 +35,4 @@ ax.plot_wireframe(X, Y, Z, color='blue', label='Sphere')
 
 plt.legend()
 plt.show()
+plt.show()
