@@ -31,5 +31,4 @@ plt.text(2, 6, "Circle", color='green')
 plt.legend()
 plt.axis('equal')
 plt.show()
-plt.show()
 
