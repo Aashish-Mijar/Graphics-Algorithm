@@ -105,4 +105,26 @@ while running:
     # Clear screen
     screen.fill(BLACK)
     
-   
+    # Draw some simple instructions
+    font = pygame.font.SysFont(None, 24)
+    instructions = [
+        "Simple DDA Square Moving in Straight Line",
+        "SPACE: Reset position",
+        "ESC: Quit"
+    ]
+    
+    for i, text in enumerate(instructions):
+        text_surface = font.render(text, True, WHITE)
+        screen.blit(text_surface, (20, 20 + i * 30))
+    
+    # Update and draw the square
+    square.move()
+    square.draw()
+    
+    # Update display
+    pygame.display.flip()
+    clock.tick(60)
+
+# Clean up
+pygame.quit()
+sys.exit()
