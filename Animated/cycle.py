@@ -64,3 +64,52 @@ def draw_dda_line(x1, y1, x2, y2, color):
         x += x_inc
         y += y_inc
 
+class SimpleBicycle:
+    def __init__(self, x, y):
+        self.x = x  # Center position of bicycle
+        self.y = y
+        self.speed = 3
+        self.wheel_radius = 30
+        self.wheel_rotation = 0
+    
+    def draw(self):
+        """Draw the entire bicycle"""
+        # Calculate wheel positions
+        back_wheel_x = self.x - 60
+        back_wheel_y = self.y
+        front_wheel_x = self.x + 60
+        front_wheel_y = self.y
+        
+        # Draw wheels using Midpoint Circle Algorithm
+        midpoint_circle(back_wheel_x, back_wheel_y, self.wheel_radius, GRAY)
+        midpoint_circle(front_wheel_x, front_wheel_y, self.wheel_radius, GRAY)
+        
+        # Draw frame using DDA lines
+        seat_x = self.x - 20
+        seat_y = self.y - 50
+        handle_x = self.x + 40
+        handle_y = self.y - 30
+        
+        # Main triangle frame
+        draw_dda_line(back_wheel_x, back_wheel_y, seat_x, seat_y, BLUE)
+        draw_dda_line(seat_x, seat_y, front_wheel_x, front_wheel_y, BLUE)
+        draw_dda_line(back_wheel_x, back_wheel_y, front_wheel_x, front_wheel_y, BLUE)
+        
+        # Seat
+        draw_dda_line(back_wheel_x, back_wheel_y, seat_x, seat_y, RED)
+        
+        # Handlebar
+        draw_dda_line(front_wheel_x, front_wheel_y, handle_x, handle_y, RED)
+        draw_dda_line(handle_x - 15, handle_y, handle_x + 15, handle_y, RED)
+    
+    def move(self):
+        """Move the bicycle and rotate wheels"""
+        self.x += self.speed
+        
+        # Rotate wheels (visual effect)
+        self.wheel_rotation += 0.2
+        
+        # Reset position when off screen
+        if self.x > WIDTH + 100:
+            self.x = -100
+
