@@ -131,4 +131,25 @@ while running:
                 bicycle.x = 100
                 bicycle.y = 250
     
-  
+    # Clear screen
+    screen.fill(BLACK)
+    
+    # Draw instructions
+    font = pygame.font.SysFont(None, 24)
+    text1 = font.render("Bicycle with Midpoint Circle Wheels", True, WHITE)
+    text2 = font.render("SPACE: Reset position  |  ESC: Quit", True, WHITE)
+    screen.blit(text1, (20, 20))
+    screen.blit(text2, (20, 50))
+    
+    # Draw algorithm info
+    info = font.render("Wheels: Midpoint Circle Algorithm  |  Frame: DDA Lines", True, GRAY)
+    screen.blit(info, (20, HEIGHT - 40))
+    
+    # Update and draw bicycle
+    bicycle.move()
+    bicycle.draw()
+    
+    # Update display
+    pygame.display.flip()
+    clock.tick(60)
+
