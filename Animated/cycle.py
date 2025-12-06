@@ -43,3 +43,24 @@ def midpoint_circle(cx, cy, radius, color):
             y -= 1
         x += 1
 
+# Simple DDA line drawing function
+def draw_dda_line(x1, y1, x2, y2, color):
+    """Draw a line using DDA algorithm"""
+    dx = x2 - x1
+    dy = y2 - y1
+    
+    steps = max(abs(dx), abs(dy))
+    if steps == 0:
+        screen.set_at((int(x1), int(y1)), color)
+        return
+    
+    x_inc = dx / steps
+    y_inc = dy / steps
+    
+    x, y = x1, y1
+    
+    for _ in range(int(steps) + 1):
+        screen.set_at((int(x), int(y)), color)
+        x += x_inc
+        y += y_inc
+
