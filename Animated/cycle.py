@@ -153,3 +153,6 @@ while running:
     pygame.display.flip()
     clock.tick(60)
 
+# Clean up
+pygame.quit()
+sys.exit()
