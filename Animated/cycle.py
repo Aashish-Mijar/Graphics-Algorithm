@@ -113,3 +113,22 @@ class SimpleBicycle:
         if self.x > WIDTH + 100:
             self.x = -100
 
+# Create bicycle
+bicycle = SimpleBicycle(100, 250)
+
+# Main game loop
+running = True
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
+            elif event.key == pygame.K_SPACE:
+                # Reset bicycle position
+                bicycle.x = 100
+                bicycle.y = 250
+    
+  
