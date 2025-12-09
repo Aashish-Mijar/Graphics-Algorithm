@@ -88,24 +88,22 @@ class SimpleSquare:
 square = SimpleSquare(100, 300, 100)
 
 # Main game loop
-running = True
-while running:
-    # Handle events
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                running = False
-            elif event.key == pygame.K_SPACE:
-                # Reset square position
-                square.x = 100
-                square.y = 300
+
     
     # Clear screen
     screen.fill(BLACK)
     
-   
+    # Draw some simple instructions
+    font = pygame.font.SysFont(None, 24)
+    instructions = [
+        "Simple DDA Square Moving in Straight Line",
+        "SPACE: Reset position",
+        "ESC: Quit"
+    ]
+    
+    for i, text in enumerate(instructions):
+        text_surface = font.render(text, True, WHITE)
+        screen.blit(text_surface, (20, 20 + i * 30))
     
     # Update and draw the square
     square.move()
