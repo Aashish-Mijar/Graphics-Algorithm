@@ -117,10 +117,11 @@ while running:
         text_surface = font.render(text, True, WHITE)
         screen.blit(text_surface, (20, 20 + i * 30))
     
-    # Update and draw the square
-    square.move()
-    square.draw()
+   
     
+    # Update display
+    pygame.display.flip()
+    clock.tick(60)
 
 # Clean up
 pygame.quit()
