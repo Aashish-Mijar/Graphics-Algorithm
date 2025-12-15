@@ -98,3 +98,24 @@ def draw_sun(color):
     draw_pixels(rays, color)
 
 
+# ====================== ANIMATION =============================
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+color_index = 0
+
+def animate():
+    global color_index
+    canvas.delete("all")
+
+    animated_color = colors[color_index % len(colors)]
+
+    draw_sun(animated_color)
+    draw_house(100, 300, animated_color)
+    draw_house(260, 300, colors[(color_index+2) % len(colors)])
+    draw_tree(60, 300, colors[(color_index+1) % len(colors)])
+    draw_tree(450, 300, colors[(color_index+3) % len(colors)])
+    draw_road()
+
+    color_index += 1
+    window.after(600, animate)
+
+
