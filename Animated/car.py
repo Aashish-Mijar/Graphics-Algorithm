@@ -118,4 +118,16 @@ def animate():
     color_index += 1
     window.after(600, animate)
 
+# ======================= MAIN WINDOW ==========================
+window = tk.Tk()
+window.title("Village Scene with Animated Colors (DDA & MPC)")
+window.geometry("600x400")
+
+canvas = tk.Canvas(window, width=600, height=400, bg="white")
+canvas.pack()
+
+animate()
+window.mainloop()
+
+
 
