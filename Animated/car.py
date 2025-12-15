@@ -42,4 +42,9 @@ def midpoint_circle(xc, yc, r):
 
     return points
 
+# ===================== DRAW PIXELS ============================
+def draw_pixels(points, color):
+    for x, y in points:
+        canvas.create_rectangle(x, y, x+1, y+1, fill=color, outline=color)
+
 
