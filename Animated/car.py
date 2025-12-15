@@ -48,3 +48,53 @@ def draw_pixels(points, color):
         canvas.create_rectangle(x, y, x+1, y+1, fill=color, outline=color)
 
 
+# ====================== SCENE OBJECTS =========================
+def draw_house(x, y, color):
+    pixels = []
+
+    # Base
+    pixels += dda_line(x, y, x+120, y)
+    pixels += dda_line(x+120, y, x+120, y-80)
+    pixels += dda_line(x+120, y-80, x, y-80)
+    pixels += dda_line(x, y-80, x, y)
+
+    # Roof
+    pixels += dda_line(x, y-80, x+60, y-130)
+    pixels += dda_line(x+60, y-130, x+120, y-80)
+
+    draw_pixels(pixels, color)
+
+
+def draw_tree(x, y, color):
+    trunk = []
+    trunk += dda_line(x, y, x, y-50)
+    trunk += dda_line(x+10, y, x+10, y-50)
+    trunk += dda_line(x, y-50, x+10, y-50)
+    draw_pixels(trunk, "brown")
+
+    leaves = []
+    leaves += midpoint_circle(x+5, y-65, 15)
+    leaves += midpoint_circle(x-10, y-65, 15)
+    leaves += midpoint_circle(x+20, y-65, 15)
+    draw_pixels(leaves, color)
+
+
+def draw_road():
+    road = []
+    road += dda_line(0, 300, 600, 300)
+    road += dda_line(0, 340, 600, 340)
+    draw_pixels(road, "black")
+
+
+def draw_sun(color):
+    sun = midpoint_circle(500, 80, 30)
+    draw_pixels(sun, color)
+
+    rays = []
+    rays += dda_line(500, 20, 500, 130)
+    rays += dda_line(440, 80, 560, 80)
+    rays += dda_line(460, 40, 540, 120)
+    rays += dda_line(460, 120, 540, 40)
+    draw_pixels(rays, color)
+
+
